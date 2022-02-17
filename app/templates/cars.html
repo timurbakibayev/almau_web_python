@@ -8,12 +8,14 @@
 <body>
     <div style="margin: 2em">
         <h2>Here is the list of your cars</h2>
+        <a class="btn btn-danger btn-sm" href="/cars/add">Add</a>
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Model</th>
                     <th>Max Speed</th>
                     <th>Color</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,9 +23,14 @@
                 <tr>
                     <th>{{ car.model }}</th>
                     <td>{{ car.speed }}</td>
-                    <td style="display: flex; flex-direction: row">
+                    <td>
+                        <div style="display: flex; flex-direction: row">
                         {{ car.color }}
                         <div style="margin-left: 1em; margin-top: 0.25em; width: 2em; height: 1em; background-color: {{ car.color }}"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" href="/cars/{{ car.id }}/delete">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}
