@@ -1,7 +1,12 @@
 from django.contrib import admin
 from django.http import HttpRequest, HttpResponse
 from django.urls import path
-from app.views import show_cars, delete_car, add_car
+from app.views import (
+    show_cars,
+    delete_car,
+    add_car_random,
+    add_new_car,
+)
 
 
 def show_index(request: HttpRequest) -> HttpResponse:
@@ -35,6 +40,7 @@ urlpatterns = [
     path('cats', show_cats),
     path('cars', show_cars),
     path('cars/<int:id_>/delete', delete_car),
-    path('cars/add', add_car),
+    path('cars/add_random', add_car_random),
+    path('cars/new', add_new_car),
     path('admin/', admin.site.urls),
 ]
